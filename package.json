@@ -8,8 +8,13 @@
     "lint": "standard --verbose | snazzy",
     "lint.fix": "standard --fix",
     "the": "node bin/cli.js --config file.json",
+    "error-1": "exit 3",
     "t2": "essslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/**/*test.js",
+    "test-one": "tap",
+    "test-with-coverage": "tap test/**/*test.js --100 --coverage-report=html --no-browser",
+    "ci.test": "tap test/**/*test.js --coverage-report=text-lcov",
+    "ci.report": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,8 @@
   "homepage": "https://github.com/atjse/scripture#readme",
   "devDependencies": {
     "snazzy": "^7.1.1",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "tap": "^12.0.1"
   },
   "dependencies": {
     "fs-extra": "^7.0.0",
