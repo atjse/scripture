@@ -1,11 +1,11 @@
 'use strict'
 
 const tap = require('tap')
-const util = require('../../lib/module/util')
-const Arguments = require('../../lib/module/Arguments')
+const util = require('../../../lib/module/util')
+const Arguments = require('../../../lib/module/Arguments')
 
 tap.test('get help', t => {
-  const pkg = require('../../package')
+  const pkg = require('../../../package')
   const args1 = Arguments
     .package(pkg)
     .usage('scripture [option] script')

@@ -1,7 +1,7 @@
 'use strict'
 
 const tap = require('tap')
-const Arguments = require('../../lib/module/Arguments')
+const Arguments = require('../../../lib/module/Arguments')
 
 tap.test('set arguments', t => {
   const args1 = Arguments

@@ -1,7 +1,7 @@
 'use strict'
 
 const tap = require('tap')
-const Option = require('../../lib/module/Arguments/Option')
+const Option = require('../../../lib/module/Arguments/Option')
 
 tap.test('invalid initialization', t => {
   t.throws(() => new Option(),
