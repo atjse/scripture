@@ -1,6 +1,7 @@
 'use strict'
 
 const tap = require('tap')
+const testUtils = require('../../utils')
 const util = require('../../../lib/module/util')
 const Arguments = require('../../../lib/module/Arguments')
 
@@ -13,7 +14,7 @@ tap.test('get help', t => {
     .option('-h, --help', 'Show help.')
     .option('-v, --version', 'Show version.')
 
-  t.equal(args1.getHelp().split(/\s+/g).join(''), util.denter(`
+  t.equal(testUtils.normalizeCliOutput(args1.getHelp()), testUtils.normalizeCliOutput(util.denter(`
     ${pkg.name} ${pkg.version}
     ${pkg.license} @ ${pkg.author}
     
@@ -24,7 +25,7 @@ tap.test('get help', t => {
       -c, --config     Custom configuration file.
       -h, --help       Show help.
       -v, --version    Show version.      
-  `).split(/\s+/g).join(''))
+  `)))
 
   t.end()
 })
