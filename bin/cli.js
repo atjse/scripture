@@ -2,6 +2,77 @@
 
 'use strict'
 
+const p = require('path')
+const pkg = require('../package')
+const Arguments = require('../lib/module/Arguments')
+const args = Arguments
+  .getDefaultArguments()
+  .package(pkg)
+
+if (!args.hasArguments() || args.option.help) {
+  console.log(args.getHelp())
+  process.exit()
+}
+
+if (args.option.version) {
+  console.log(args.getVersion())
+  process.exit()
+}
+
+let cwd = process.cwd()
+
+if (args.option.config) {
+  cwd = p.normalize(args.option.config.value)
+}
+
+const Configuration = require('../lib/module/Configuration')
+const cfg = new Configuration(cwd)
+
+cfg.loadConfiguration()
+
+if (!cfg.hasConfiguration()) {
+  throw new Error(`Cannot find configuration in '${cwd}'`)
+}
+
+const Scripts = require('../lib/module/Scripts')
+const scripts = new Scripts(cfg.getConfiguration())
+
+if (!scripts.hasScripts()) {
+  throw new Error(`No script was found`)
+}
+
+const npmScript = args.arguments.main
+
+if (!npmScript) {
+  throw new Error('No NPM script was given')
+}
+
+if (!scripts.hasScript(npmScript)) {
+  throw new Error(`No script was found with the name: '${npmScript}'`)
+}
+
+const Runner = require('../lib/module/Runner')
+const runner = new Runner(cwd)
+
+runner.run(scripts.getScript(npmScript))
+
+//console.log(args.arguments.main)
+
+/*
+// console.log(args.arguments)
+console.log(args.numArguments())
+console.log('------------------------------------------')
+
+console.log(args.option.h)
+console.log(args.option.help)
+// console.log(args.arguments)
+// console.log(args.arguments.main)
+// console.log(args.option.config)
+//console.log(args.numArguments())
+
+console.log('------------------------------------------')
+*/
+
 /*
 const cp = require('child_process')
 const spawn = cp.spawn
@@ -50,6 +121,7 @@ child
 /**
  * @param {Scripts} scripts
  */
+/*
 function printAvailableScripts(scripts) {
   const indent = '  '
   let list = ''
@@ -97,3 +169,4 @@ console.log(process.argv)
   const runner = new Runner(cwd)
   runner.run(scripts.getScript(main))
 })()
+*/
