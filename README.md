@@ -1,4 +1,4 @@
-# 📝 [script]ure
+# [script]ure
 
 [![Travis CI - Build Status][travis-badge]][travis-url]
 [![Coveralls - Code Coverage Status][cov-badge]][cov-url]
@@ -10,7 +10,8 @@ A helper tool to **keep package.json lean** by extracting
 
 ---
 
-scripture: `[noun]`: from Latin *scrīptūra* `("a writing, scripture")`
+scripture `[noun]`: 
+ - from Latin *scrīptūra* `("a writing, scripture")`
  - a body of authoritative writings or anything written 
 
 ---
