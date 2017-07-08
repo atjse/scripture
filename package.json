@@ -1,7 +1,7 @@
 {
   "name": "scripture",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A helper tool to keep package.json lean by extracting your NPM scripts into a separate file.",
   "bin": "bin/cli.js",
   "main": "lib/index.js",
   "scripts": {
