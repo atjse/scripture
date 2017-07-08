@@ -40,7 +40,7 @@ yarn add scripture --dev
    ```json
    ...
    "scripts": {
-     "the": "sciprture"
+     "the": "scripture"
    }
    ...
    ```
