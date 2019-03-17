@@ -1,5 +1,7 @@
 # [script]ure
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ntbx/scripture.svg)](https://greenkeeper.io/)
+
 [![Travis CI - Build Status][travis-badge]][travis-url]
 [![Coveralls - Code Coverage Status][cov-badge]][cov-url]
 [![JavaScript Style Guide][jsstd-badge]][jsstd-url]
